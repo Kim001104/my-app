@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/page1"
+            android:visibility="visible">
+            <TextView
+                android:id="@+id/text_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="status"
+                android:textSize="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_paired"
+                android:text="Paired Devices"
+                android:onClick="onClickButtonPaired"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_status"/>
+
+            <Button
+                android:id="@+id/btn_search"
+                android:text="Search"
+                android:onClick="onClickButtonSearch"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_paired"/>
+            <ListView
+                android:id="@+id/listview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_send"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/page2"
+            android:visibility="invisible"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#0000"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#000000"
+                android:layout_weight="0.5">
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:id="@+id/iv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/image1" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:orientation="horizontal" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <Button
+                            android:id="@+id/response1"
+                            android:layout_width="25dp"
+                            android:layout_height="100dp"
+                            android:text="좌석1"
+                            android:layout_weight="0.1"/>
+
+
+
+                            <Button
+                                android:id="@+id/response2"
+                                android:layout_width="25dp"
+                                android:layout_height="100dp"
+                                android:text="좌석2"
+                                android:layout_weight="0.099" />
+
+                            <Button
+                                android:id="@+id/response3"
+                                android:layout_width="25dp"
+                                android:layout_height="100dp"
+                                android:text="좌석3"
+                                android:layout_weight="0.1"/>
+
+                            <Button
+                                android:layout_width="172dp"
+                                android:layout_height="100dp"
+                                android:visibility="invisible"
+                                android:layout_weight="0.4"/>
+
+                            <Button
+                                android:id="@+id/response4"
+                                android:layout_width="25dp"
+                                android:layout_height="100dp"
+                                android:text="좌석4"
+                                android:layout_weight="0.1"/>
+
+                            <Button
+                                android:id="@+id/response5"
+                                android:layout_width="25dp"
+                                android:layout_height="100dp"
+                                android:text="좌석5"
+                                android:layout_weight="0.1"/>
+
+                            <Button
+                                android:id="@+id/response6"
+                                android:layout_width="25dp"
+                                android:layout_height="100dp"
+                                android:text="좌석6"
+                                android:layout_weight="0.1"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
+            <Button
+                android:id="@+id/btn_send"
+                android:text="Send a"
+                android:onClick="onClickButtonSend"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_search"
+                android:visibility="visible"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:text="back"
+                android:id="@+id/back"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#0000" />
+        </LinearLayout>
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
