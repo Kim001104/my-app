@@ -1,0 +1,94 @@
+#include <SoftwareSerial.h>
+SoftwareSerial BTSerial(2, 3); //tx 2 rx 3
+
+int FSRsensor0 = A0;                          
+int FSRsensor1 = A1; 
+int FSRsensor2 = A2; 
+int FSRsensor3 = A3;
+int FSRsensor4 = A4;
+int FSRsensor5 = A5;
+
+int value0 = 0.0;                                      
+int value1 = 0.0;
+int value2 = 0.0;
+int value3 = 0.0;
+int value4 = 0.0;
+int value5 = 0.0;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  BTSerial.begin(9600);
+}
+
+char c = 'b';
+char seat[7] = "000000";
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  // BT --> Data --> Arduino --> LCD
+  if (BTSerial.available()) {
+      c = BTSerial.read();
+      Serial.print(c);
+  }
+
+  if (c == 'a'){
+
+      value0 = analogRead(FSRsensor0);
+      if (value0 > 10){
+        seat[0] = '1';
+      } else {
+        seat[0] = '0';
+      }
+
+      value1 = analogRead(FSRsensor1);
+      if (value1 > 10){
+        seat[1] = '1';
+      } else {
+        seat[1] = '0';
+      }
+
+      value2 = analogRead(FSRsensor2);
+      if (value2 > 10){
+        seat[2] = '1';
+      } else {
+        seat[2] = '0';
+      }
+
+      value3 = analogRead(FSRsensor3);
+      if (value3 > 10){
+        seat[3] = '1';
+      } else {
+        seat[3] = '0';
+      }
+
+      value4 = analogRead(FSRsensor4);
+      if (value4 > 10){
+        seat[4] = '1';
+      } else {
+        seat[4] = '0';
+      }
+
+      value5 = analogRead(FSRsensor5);
+      if (value5 > 10){
+        seat[5] = '1';
+      } else {
+        seat[5] = '0';
+      }
+
+
+      Serial.println(value0);
+      Serial.println(value1);
+      Serial.println(value2);
+      Serial.println(value3);
+      Serial.println(value4);
+      Serial.println(value5);
+       
+      BTSerial.println(seat);
+      delay(1000);
+      //BTSerial.println(seat);
+      //delay(1000);
+      
+  }  
+
+}
